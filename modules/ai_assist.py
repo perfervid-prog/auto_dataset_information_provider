@@ -1,4 +1,3 @@
-from google.auth.exceptions import DefaultCredentialsError
 import google.generativeai as genai
 import os
 from dotenv import load_dotenv
@@ -41,7 +40,5 @@ def predict_connected_columns_data(data_info, data_head):
         output = output.strip("```json").strip("\n```")
 
         return json.loads(output)
-    except DefaultCredentialsError:
-        return f"API key not found!"
     except Exception as e:
         return e
